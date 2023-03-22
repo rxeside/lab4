@@ -62,8 +62,7 @@
 {
     font-family: 'Oxygen';
     background: #DD783F;
-    width: 200px;
-    height: 40px;
+    padding: 20px 45px;
     border-radius: 3px;
     border: none;
     font-size: 13px;
@@ -149,9 +148,7 @@
 {
     display: block;
     margin-top: 100px;
-    font-family: 'Lora';
-    font-size: 27px;
-    line-height: 30px;
+    font: 400 27px/1.1 'Lora';
     text-decoration: none;
     color: #FFFFFF;
     margin-left: 30px;
@@ -160,9 +157,7 @@
 .big-post__text
 {
     display: block;
-    font-family: 'Oxygen';
-    font-size: 14px;
-    line-height: 25px;
+    font: 400 14px/1.75 'Oxygen';
     color: rgba(255, 255, 255, 0.7);
     margin-left: 30px;
 }
@@ -177,9 +172,7 @@
 .big-post__image-text
 {
     display: inline;
-    font-family: 'Oxygen';
-    font-size: 14px;
-    line-height: 25px;
+    font: 400 14px/1.75 'Oxygen';
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -187,9 +180,7 @@
 {
     display: inline;
     margin-left: 180px;
-    font-family: 'Oxygen';
-    font-size: 14px;
-    line-height: 25px;
+    font: 400 14px/1.75 'Oxygen';
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -203,11 +194,8 @@
     padding-right: 13px;
     border-radius: 3px;
     border: none;
-    font-size: 13px;
-    line-height: 20px;
+    font: 400 13px/1.5 'Oxygen';
     color:white;
-    font-family: 'Oxygen';
-    font-size: 12px;
     margin-left: 30px;
 }
 
@@ -215,10 +203,8 @@
 {
     display: flex;
     justify-content: center;
-    font-family: 'Lora';
+    font: 400 30px/0.7 'Lora';
     font-weight: normal;
-    font-size: 30px;
-    line-height: 21px;
     text-decoration: none;
     color:  #101315;
 }
@@ -249,22 +235,18 @@
 .small-post__title
 {
     display: block;
-    font-family: 'Lora';    
+    font: 400 20px 'Lora';
     font-weight: normal;
     margin: 10px 10px;
-    font-size: 20px;
-    line-height: 21px;
     text-decoration: none;
     color:  #101315;
 }
 
 .small-post__text
 {
-    font-family: 'Oxygen';
+    font: 400 13px/1.4 'Oxygen';
     word-wrap: break-word;
     margin: 10px 10px;
-    font-size: 13x;
-    line-height: 19px;
     color: #7A7A7A;
 }
 
@@ -286,9 +268,7 @@
 {
     display: inline-block;
     margin-top: 5px;
-    font-family: 'Oxygen';
-    font-size: 11px;
-    line-height: 35px;
+    font: 400 11px 'Oxygen';
     color: #999999;
 } 
 
@@ -296,9 +276,7 @@
 {
     display: inline;
     margin-left: 120px;
-    font-family: 'Oxygen';
-    font-size: 12px;
-    line-height: 35px;
+    font: 400 12px/2.9 'Oxygen';
     color: #999999;
 }
 
@@ -315,11 +293,9 @@
     display: flex;
     justify-content: center;
     padding-top: 70px;
-    font-family: "Oxygen";
+    font: 400 25px/1.15 'Oxygen';
     font-weight: normal;
     color: #EFEFEF;
-    font-size: 25px;
-    line-height: 30px;
 }
 
 .footer__line   
@@ -340,9 +316,7 @@
 .search__button
 {
     background-color:  rgba(255, 255, 255, 0.233);
-    font-family: "Roboto";
-    font-size: 12px;
-    line-height: 14px;
+    font: 400 12px/1.1 'Roboto';
     border-radius: 0px 6px 6px 0px;
     border: 0;
     color: white;
@@ -353,10 +327,7 @@
 
 .search__text
 {
-    font-family: "Roboto";
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14px;
+    font: 400 12px/1.1 'Roboto';
     text-align: left;
     padding: 0 30px 0 30px;
     border: 10px;
@@ -379,9 +350,7 @@
 
 .content__title
 {
-
-    font-family: 'Lora';
-    font-size: 26px;
+    font: 400 26px 'Lora';
     color:  #FFFFFF;
 }
 
@@ -390,7 +359,6 @@
     word-spacing: 40px;
     font-size: 13px;
     text-transform: uppercase;
-
 }
 
 .menu-footer__link

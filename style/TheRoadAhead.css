@@ -10,17 +10,14 @@
 .top__title
 {
     display: inline;
-    font-family: 'Lora';
-    font-size: 26px;
+    font: 400 26px 'Lora';
     letter-spacing: 1px;
-    line-height: 1;
 }
 
 .top__navigation
 {
     display: inline;
-    font-size: 12px;
-    line-height: 26px;
+    font: 400 12px/2.1 'Lora';
     letter-spacing: 0.6px;
     text-transform: uppercase;
 } 
@@ -34,17 +31,12 @@
 
 .centre__title
 {
-    font-family: 'Lora';
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 51px;
+    font: 400 50px/1.05 'Lora';
 }
 
 .centre__text
 {
-    font-family: 'Oxygen';
-    font-size: 17px;
-    line-height: 20px;
+    font: 400 17px/1.2 'Oxygen';
     color: rgba(46, 46, 46, 0.63)
 }
 
@@ -76,9 +68,7 @@
 .bottom__title
 {
     display: inline;
-    font-family: 'Lora';
-    font-size: 26px;
-    line-height: 26px;
+    font: 400 26px 'Lora';
     color:  #FFFFFF;
 }
 
