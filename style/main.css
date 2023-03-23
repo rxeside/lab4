@@ -1,11 +1,11 @@
 .header
 {
     background-image: url("image/header.jpg");
-    height: 500px;
     background-size: cover;
+    padding-bottom: 100px;
     background-repeat: no-repeat;
     background-color: yellow;
-    color:white;
+    color: white;
 }
 
 .header__top
@@ -99,46 +99,35 @@
 
 .section__title-big-post
 {
-    display: flex;
+    display: inline-block;
     justify-content: center;
     font-weight: normal;
     font-family: "Oxygen";
+    padding: 15px 10px;
     color: #2E2E2E;
     letter-spacing: 2px;
+    border-bottom: 1px solid #dedede;
 } 
 
-.section__line
-{
-    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.2), transparent);
-    border: 0;
-    height: 1px;
-    margin: 22px 600px 22px 600px;
-    box-sizing: content-box;
-    display: block;
-}
-.section__big-post
+.section__big-posts
 {
     display: flex;
     justify-content: center;
 }
 
-.big-post__left-block
+.big-posts__left-block
 {
     background-image: url(image/first-image.jpg);
-    background-size: 460px 280px;
-    height: 280px;
-    width: 460px;
+    background-size: 100% 280px;
     margin-right: 20px;
     padding-top: 45px;
     background-repeat: no-repeat;
 }
 
-.big-post__right-block
+.big-posts__right-block
 {
     background-image: url(image/second-image.jpg);
-    background-size: 460px 280px;
-    height: 280px;
-    width: 460px;
+    background-size: 100% 280px; 
     margin-left: 20px;
     padding-top: 20px;
     background-repeat: no-repeat;
@@ -201,15 +190,18 @@
 
 .section__title-top
 {
-    display: flex;
+    display: inline-block;
+    padding: 15px 10px;
     justify-content: center;
-    font: 400 30px/0.7 'Lora';
+    font: 400 25px/1.1 'Oxygen';
+    letter-spacing: 3px;
     font-weight: normal;
     text-decoration: none;
     color:  #101315;
+    border-bottom: 1px solid #dedede;
 }
 
-.section__small-post
+.section__small-posts
 {
     display: flex;
     justify-content: center;
@@ -219,13 +211,11 @@
     margin-right: auto;
 }
 
-.small-post__item
+.small-posts__item
 {
     max-width: 290px;
-    max-height: 291px;
     margin: 20px 20px 50px;
     width: 100%;
-    height: 100%;
     background-color: #ffffff;
     border-top: 200px;
     border-width: 200px;
@@ -246,22 +236,14 @@
 {
     font: 400 13px/1.4 'Oxygen';
     word-wrap: break-word;
-    margin: 10px 10px;
+    padding: 10px 10px;
     color: #7A7A7A;
+    border-bottom: 1px solid #dedede;
 }
 
 .small-post__image
 {
     margin-left: 10px;
-}
-
-.small-post__line
-{
-    background-color:  #F7F7F7;
-    border: 0;
-    height: 2px;
-    box-sizing: content-box;
-    display: block;
 }
 
 .small-post__image-text 
@@ -290,10 +272,12 @@
 
 .footer__title
 {
-    display: flex;
+    display: inline-block;
+    padding: 15px 10px;
     justify-content: center;
     padding-top: 70px;
     font: 400 25px/1.15 'Oxygen';
+    border-bottom: 1px solid #dedede;
     font-weight: normal;
     color: #EFEFEF;
 }
@@ -322,7 +306,6 @@
     color: white;
     width: 125px;
     height: 50px;
-    
 }
 
 .search__text
