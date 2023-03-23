@@ -1,8 +1,12 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 .header
 {
     background-image: url("image/header.jpg");
     background-size: cover;
-    padding-bottom: 100px;
     background-repeat: no-repeat;
     background-color: yellow;
     color: white;
@@ -10,6 +14,7 @@
 
 .header__top
 {
+    padding-top: 3px;
     display: flex;
     justify-content: space-around;
     align-items: baseline;
@@ -50,12 +55,14 @@
 {
     font: 400 50px/1.05 'Lora';
     font-weight: normal;
+    margin-bottom: 20px;
 }
 
 .caption__text
 {
     font: 400 17px/1.15 'Oxygen';
     color: rgba(255, 255, 255, 0.63);
+    margin-bottom: 31px;
 }
 
 .caption__button
@@ -67,6 +74,7 @@
     border: none;
     font-size: 13px;
     color:white;
+    margin-bottom: 157px;
 }
 
 .section
@@ -85,9 +93,9 @@
 .navigation__menu
 {
     display: flex;
-    justify-content: space-around;
-    margin-left: 30%;
-    margin-right: 30%;
+    justify-content: space-between;
+    margin-left: 296px;
+    margin-right: 286px;
 }
 
 .menu__link
@@ -99,8 +107,12 @@
 
 .section__title-big-post
 {
-    display: inline-block;
     justify-content: center;
+    margin: 10px 10px 35px 10px;
+    margin-top: 63px;
+    margin-left: 850px;
+    margin-right: 850px;
+    display: flex;
     font-weight: normal;
     font-family: "Oxygen";
     padding: 15px 10px;
@@ -191,6 +203,10 @@
 .section__title-top
 {
     display: inline-block;
+    margin-top: 63px;
+    margin-left: 850px;
+    margin-right: 820px;
+    margin-bottom: 15px;
     padding: 15px 10px;
     justify-content: center;
     font: 400 25px/1.1 'Oxygen';
@@ -273,6 +289,10 @@
 .footer__title
 {
     display: inline-block;
+    margin-left: 850px;
+    margin-right: 850px;
+    margin-bottom: 10px;
+    margin-top: 20px;
     padding: 15px 10px;
     justify-content: center;
     padding-top: 70px;
