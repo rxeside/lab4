@@ -1,4 +1,5 @@
-* {
+*
+{
     margin: 0px;
     padding: 0px;
 }
@@ -79,7 +80,7 @@
 
 .section
 {
-    background: #F7F7F7;
+    background: #f1f1f1;
 }
 
 .section__navigation
@@ -253,6 +254,7 @@
 .small-post__main-text
 {
     height: 93px;
+    border-bottom: 1px solid #dedede;
 }
 
 .small-post__title
@@ -272,7 +274,6 @@
     padding: 0px 10px;
     padding-bottom: 30px;
     color: #7A7A7A;
-    border-bottom: 1px solid #dedede;
 }
 
 .small-post__footer
