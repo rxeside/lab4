@@ -95,8 +95,7 @@
 {
     display: flex;
     justify-content: space-between;
-    margin-left: 296px;
-    margin-right: 286px;
+    margin: 11px 290px;
 }
 
 .menu__link
@@ -110,9 +109,8 @@
 {
     justify-content: center;
     margin: 10px 10px 35px 10px;
-    margin-top: 63px;
-    margin-left: 850px;
-    margin-right: 850px;
+    max-width: 200px;
+    margin: 63px auto;
     display: flex;
     font-weight: normal;
     font-family: "Oxygen";
@@ -133,7 +131,7 @@
     background-image: url(image/first-image.jpg);
     background-size: 100% 280px;
     margin-right: 20px;
-    padding-top: 45px;
+    padding-top: 20px;
     background-repeat: no-repeat;
 }
 
@@ -149,7 +147,7 @@
 .big-post__title
 {
     display: block;
-    margin-top: 110px;
+    margin-top: 135px;
     margin-bottom: 6px;
     font: 400 27px/1.1 'Lora';
     text-decoration: none;
@@ -169,18 +167,15 @@
 .big-post__footer
 {
     display: flex;
-    align-items: baseline;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    align-items: center;
+    margin: 15px 20px;
 }
 
 .big-post__image
 {
-    display: inline;  
-    border-radius: 10px;
-    margin-right: 10px;
+    display: inline;
+    border-radius: 60px;
+    margin-right: 11px;
 }
 
 .big-post__image-text
@@ -200,6 +195,7 @@
 
 .big-post__button
 {
+    position: absolute;
     display: block;
     background: #DD783F;
     padding-top: 8px;
@@ -215,11 +211,9 @@
 
 .section__title-top
 {
-    display: inline-block;
-    margin-top: 63px;
-    margin-left: 850px;
-    margin-right: 820px;
-    margin-bottom: 15px;
+    max-width: 188px;
+    display: flex;
+    margin: 63px auto 15px;
     padding: 15px 10px;
     justify-content: center;
     font: 400 25px/1.1 'Oxygen';
@@ -251,13 +245,13 @@
     overflow: hidden;
 }
 
-.small-post__main-text
+.small-post__main-text-of-small-post
 {
     height: 80px;
     border-bottom: 1px solid #dedede;
 }
 
-.small-post__title
+.main-text-of-small-post__title
 {
     display: block;
     font: 400 20px 'Lora';
@@ -267,7 +261,7 @@
     color:  #101315;
 }
 
-.small-post__text
+.main-text-of-small-post__text
 {
     font: 400 13px/1.4 'Oxygen';
     word-wrap: break-word;
@@ -279,8 +273,9 @@
 .small-post__footer
 {
     display: flex;
-    align-items: baseline;
-    margin-top: 15px;
+    align-items: center;
+    margin-top: 7px;
+    margin-bottom: 7px;
     margin-left: 13px;
 }
 
@@ -315,11 +310,9 @@
 
 .footer__title
 {
-    display: inline-block;
-    margin-left: 850px;
-    margin-right: 850px;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    display: flex;
+    margin: 20px auto 10px;
+    max-width: 188px;
     padding: 15px 10px;
     justify-content: center;
     padding-top: 70px;
