@@ -90,7 +90,7 @@
 .footer
 {
     position: relative;
-    background-image: url(image/footer.jpg);
+    background-image: url("../image/footer.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
