@@ -67,7 +67,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func post(w http.ResponseWriter, r *http.Request) {
-	ts, err := template.ParseFiles("pages/post.html")
+	ts, err := template.ParseFiles("pages/the-road-ahead.html")
 	if err != nil {
 		http.Error(w, "Internal Server error", 500)
 		log.Println(err.Error())
