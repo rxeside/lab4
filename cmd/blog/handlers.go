@@ -4,7 +4,15 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
+
+type postPageData struct {
+	Title      string 
+	Subtitle   string
+}
 
 type indexPage struct {
 	Title           string
@@ -14,21 +22,21 @@ type indexPage struct {
 }
 
 type featuredPostData struct {
-	Title       string
-	Description string
-	ImgModifier string
-	Author      string
-	AuthorImg   string
-	PublishDate string
+	Title       string `db:"title"`
+	Description string `db:"subtitle"`
+	ImgModifier string `db:"image_url"`
+	Author      string `db:"author"`
+	AuthorImg   string `db:"author_url"`
+	PublishDate string `db:"publish_date"`
 }
 
 type mostRecentPostData struct {
-	PostImg     string
-	Title       string
-	Description string
-	AuthorImg   string
-	Author      string
-	PublishDate string
+	Title       string `db:"title"`
+	Description string `db:"subtitle"`
+	PostImg     string `db:"image_url"`
+	Author      string `db:"author"`
+	AuthorImg   string `db:"author_url"`
+	PublishDate string `db:"publish_date"`
 }
 
 type postPage struct {
@@ -41,127 +49,116 @@ type paragraphData struct {
 	Paragraph string
 }
 
-func index(w http.ResponseWriter, r *http.Request) {
-	ts, err := template.ParseFiles("pages/index.html")
-	if err != nil {
-		http.Error(w, "Internal error", 500)
-		log.Println(err.Error())
-		return
-	}
+func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		featuredPostsData, err := featuredPosts(db)
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500) 
+			log.Println(err)
+			return 
+		}
 
-	data := indexPage{
-		Title:           "Let's do it together.",
-		SubTitle:        "We travel the world in search of stories. Come along for the ride.",
-		FeaturedPosts:   featuredPosts(),
-		MostRecentPosts: mostRecentPosts(),
-	}
+		mostRecentPostsData, err := mostRecentPosts(db)
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err)
+			return
+		}
 
-	err = ts.Execute(w, data)
-	if err != nil {
-		http.Error(w, "Internal Server error", 500)
-		log.Println(err.Error())
-		return
-	}
+		ts, err := template.ParseFiles("pages/index.html")
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500) 
+			log.Println(err.Error())                    
+			return                                     
+		}
 
-	log.Println("Request completed successfully")
-}
+		data := indexPage{
+			FeaturedPosts: featuredPostsData,
+			MostRecentPosts:    mostRecentPostsData,
+		}
 
-func post(w http.ResponseWriter, r *http.Request) {
-	ts, err := template.ParseFiles("pages/the-road-ahead.html")
-	if err != nil {
-		http.Error(w, "Internal Server error", 500)
-		log.Println(err.Error())
-		return
-	}
+		err = ts.Execute(w, data)
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err.Error())
+			return
+		}
 
-	data := postPage{
-		Title:      "The Road Ahead",
-		SubTitle:   "The road ahead might be paved - it might not be.",
-		Paragraphs: paragraphs(),
-	}
-
-	err = ts.Execute(w, data)
-	if err != nil {
-		http.Error(w, "Internal Server error", 500)
-		log.Println(err.Error())
-		return
-	}
-
-	log.Println("Request completed successfully")
-}
-
-func featuredPosts() []featuredPostData {
-	return []featuredPostData{
-		{
-			Title:       "The Road Ahead",
-			Description: "The road ahead might be paved - it might not be.",
-			ImgModifier: "big-posts__left-block",
-			Author:      "Mat Vogels",
-			AuthorImg:   "static/image/mat.jpg",
-			PublishDate: "September 25, 2015",
-		},
-		{
-			Title:       "From Top Down",
-			Description: "Once a year, go someplace you’ve never been before.",
-			ImgModifier: "big-posts__right-block",
-			Author:      "William Wong",
-			AuthorImg:   "static/image/william.jpg",
-			PublishDate: "September 25, 2015",
-		},
+		log.Println("Request completed successfully")
 	}
 }
 
-func mostRecentPosts() []mostRecentPostData {
-	return []mostRecentPostData{
-		{
-			PostImg:     "static/image/third-image.jpg",
-			Title:       "Still Standing Tall",
-			Description: "Life begins at the end of your comfort zone.",
-			Author:      "William Wong",
-			AuthorImg:   "static/image/william.jpg",
-			PublishDate: "9/25/2015",
-		},
-		{
-			PostImg:     "static/image/fourth-image.jpg",
-			Title:       "Sunny Side Up",
-			Description: "No place is ever as bad as they tell you it’s going to be.",
-			Author:      "Mat Vogels",
-			AuthorImg:   "static/image/mat.jpg",
-			PublishDate: "9/25/2015",
-		},
-		{
-			PostImg:     "static/image/fifth-image.jpg",
-			Title:       "Water Falls",
-			Description: "We travel not to escape life, but for life not to escape us.",
-			Author:      "Mat Vogels",
-			AuthorImg:   "static/image/mat.jpg",
-			PublishDate: "9/25/2015",
-		},
-		{
-			PostImg:     "static/image/sixth-image.jpg",
-			Title:       "Through the Mist",
-			Description: "Travel makes you see what a tiny place you occupy in the world.",
-			Author:      "William Wong",
-			AuthorImg:   "static/image/william.jpg",
-			PublishDate: "9/25/2015",
-		},
-		{
-			PostImg:     "static/image/seven-image.jpg",
-			Title:       "Awaken Early",
-			Description: "Not all those who wander are lost.",
-			Author:      "Mat Vogels",
-			AuthorImg:   "static/image/mat.jpg",
-			PublishDate: "9/25/2015",
-		},
-		{
-			PostImg:     "static/image/eight-image.jpg",
-			Title:       "Try it Always",
-			Description: "The world is a book, and those who do not travel read only one page.",
-			Author:      "Mat Vogels",
-			AuthorImg:   "static/image/mat.jpg",
-			PublishDate: "9/25/2015",
-		},
+func post(w http.ResponseWriter, r *http.Request){
+	ts, err := template.ParseFiles("pages/post.html") 
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500) 
+			log.Println(err)
+			return
+		}
+
+		data := postPageData{
+			Title:           "The Road Ahead",
+			Subtitle:        "The road ahead might be paved - it might not be.",
+		}
+		
+		err = ts.Execute(w, data)
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err)
+			return
+		}
+		
+		log.Println("Request completed successfully")
+}
+
+func featuredPosts(db *sqlx.DB) ([]featuredPostData, error) {
+    const query = `
+		SELECT
+			title,
+			subtitle,
+			image_url,
+			author,
+			author_url,
+			publish_date
+		FROM
+			post
+		WHERE featured = 1
+	` // Составляем SQL-запрос для получения записей для секции featured-posts
+
+	var posts []featuredPostData // Заранее объявляем массив с результирующей информацией
+
+	err := db.Select(&posts, query) // Делаем запрос в базу данных
+	if err != nil {                 // Проверяем, что запрос в базу данных не завершился с ошибкой
+		return nil, err
 	}
+
+	return posts, nil
+
+}
+
+func mostRecentPosts(db *sqlx.DB) ([]mostRecentPostData, error) {
+	const query = `
+		SELECT
+			title,
+			subtitle,
+			image_url,
+			author,
+			author_url,
+			publish_date
+		FROM
+			post
+		WHERE featured = 0
+	` // Составляем SQL-запрос для получения записей для секции featured-posts
+
+	var most []mostRecentPostData // Заранее объявляем массив с результирующей информацией
+
+	err := db.Select(&most, query) // Делаем запрос в базу данных
+	if err != nil {                 // Проверяем, что запрос в базу данных не завершился с ошибкой
+		return nil, err
+	}
+
+	return most, nil
+
 }
 
 func paragraphs() []paragraphData {
