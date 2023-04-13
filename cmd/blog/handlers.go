@@ -12,6 +12,7 @@ import (
 type postPageData struct {
 	Title      string 
 	Subtitle   string
+	Paragraphs []paragraphData
 }
 
 type indexPage struct {
@@ -99,6 +100,7 @@ func post(w http.ResponseWriter, r *http.Request){
 		data := postPageData{
 			Title:           "The Road Ahead",
 			Subtitle:        "The road ahead might be paved - it might not be.",
+			Paragraphs: paragraphs()
 		}
 		
 		err = ts.Execute(w, data)
