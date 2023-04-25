@@ -21,15 +21,13 @@
     <div class="header__center top-block">
       <h1 class="top-block__title" >{{ .Title }}</h1>
       <p class="top-block__text">{{ .Subtitle }}</p>
-      <img class="top-block__image" src="static/image/nine-image.png" alt= "The Road Ahead" >  
+      <img class="top-block__image" src="{{ .Image }}" alt= "The Road Ahead" >  
     </div>      
   </header>
-  <div class="body__main">
-    {{ range .Paragraphs }} 
+  <div class="body__main"> 
     <p class="body__text">
-      {{ .Paragraph }}         
+      {{ .Content }}         
     </p>
-    {{ end }}
   </div>
   <footer class="footer">
     <h2 class="footer__title">Stay in Touch</h2>

@@ -40,7 +40,7 @@
     <div class="section__big-posts big-posts">
     {{ range .FeaturedPosts }}
       <div class="{{ .ImgModifier }}">         
-        <a class="big-post__title" href="post">{{ .Title }}</a>
+        <h3 class="big-post__title"><a class="big-post_title_link" href="/post/{{ .PostID }}">{{ .Title }}</a></h3>
         <p class="big-post__text">{{ .Description }}</p>
         <div class="big-post__footer">
           <img class="big-post__image" src="{{ .AuthorImg }}" alt= "Mat" width="26" height="26">    
