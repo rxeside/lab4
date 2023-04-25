@@ -11,11 +11,6 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-type postPageData struct {
-	Title    string
-	Subtitle string
-}
-
 type indexPage struct {
 	Title           string
 	SubTitle        string
@@ -43,7 +38,7 @@ type mostRecentPostData struct {
 	PostID      string `db:"post_id"`
 }
 
-type postPage struct {
+type postData struct {
 	Title    string `db:"title"`
 	SubTitle string `db:"subtitle"`
 	Image    string `db:"image_url"`
@@ -131,7 +126,7 @@ func post(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func postByID(db *sqlx.DB, postID int) (postPageData, error) {
+func postByID(db *sqlx.DB, postID int) (postData, error) {
 	const query = `
 		SELECT
 			title,
@@ -144,11 +139,11 @@ func postByID(db *sqlx.DB, postID int) (postPageData, error) {
 			post_id = ?
 	`
 
-	var post postPageData
+	var post postData
 
 	err := db.Get(&post, query, postID)
 	if err != nil {
-		return postPageData{}, err
+		return postData{}, err
 	}
 
 	return post, nil
@@ -162,7 +157,7 @@ func featuredPosts(db *sqlx.DB) ([]featuredPostData, error) {
 			modifier,
 			author,
 			author_url,
-			publish_date
+			publish_date,
 			post_id
 		FROM
 			post
@@ -188,7 +183,7 @@ func mostRecentPosts(db *sqlx.DB) ([]mostRecentPostData, error) {
 			image_url,
 			author,
 			author_url,
-			publish_date
+			publish_date,
 			post_id
 		FROM
 			post

@@ -56,7 +56,7 @@
       <div class="small-posts__item small-post">
         <img src="{{ .PostImg }}" alt="StillStandingTall" width="296px" height="150px">
         <div class="small-post__main-text-of-small-post main-text-of-small-post">
-          <span class="main-text-of-small-post__title">{{ .Title }}</span>
+          <span class="main-text-of-small-post__title"><a class="big-post_title_link" href="/post/{{ .PostID }}">{{ .Title }}</a></span>
           <p class="main-text-of-small-post__text">{{ .Description }}</p>
         </div>
         <div class="small-post__footer">

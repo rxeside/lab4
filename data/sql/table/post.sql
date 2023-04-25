@@ -9,7 +9,7 @@ CREATE TABLE post
    `author`       VARCHAR(255) NOT NULL,
    `author_url`   VARCHAR(255) NOT NULL,
    `featured`     TINYINT(1) DEFAULT 0,
-   `content`      TEXT NOT NULL
+   `content`      TEXT NOT NULL,
    PRIMARY KEY (`post_id`)
 ) ENGINE = InnoDB
 CHARACTER SET = utf8mb4
