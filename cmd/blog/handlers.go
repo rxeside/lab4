@@ -40,7 +40,7 @@ type mostRecentPostData struct {
 
 type postData struct {
 	Title    string `db:"title"`
-	SubTitle string `db:"subtitle"`
+	Subtitle string `db:"subtitle"`
 	Image    string `db:"image_url"`
 	Content  string `db:"content"`
 }

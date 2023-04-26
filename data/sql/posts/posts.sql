@@ -333,7 +333,7 @@ VALUES
         '',
         '/static/image/eight-image.jpg',
         'Mat Vogels',
-        '/static/image/mat.jpg"',
+        '/static/image/mat.jpg',
         '9/25/2015',
         0,
         "Try it Always
