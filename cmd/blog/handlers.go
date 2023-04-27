@@ -21,7 +21,7 @@ type indexPage struct {
 type featuredPostData struct {
 	Title       string `db:"title"`
 	Description string `db:"subtitle"`
-	ImgModifier string `db:"modifier"`
+	PostImg     string `db:"image_url"`
 	Author      string `db:"author"`
 	AuthorImg   string `db:"author_url"`
 	PublishDate string `db:"publish_date"`
@@ -154,7 +154,7 @@ func featuredPosts(db *sqlx.DB) ([]featuredPostData, error) {
 		SELECT
 			title,
 			subtitle,
-			modifier,
+			image_url,
 			author,
 			author_url,
 			publish_date,

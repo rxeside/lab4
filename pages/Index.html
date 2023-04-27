@@ -39,7 +39,7 @@
     <h2 class="section__title-big-post">Featured post</h2>
     <div class="section__big-posts big-posts">
     {{ range .FeaturedPosts }}
-      <div class="{{ .ImgModifier }}">         
+      <div class="big-posts__left-block" style="background-image: url('{{ .PostImg }}')">         
         <h3 class="big-post__title"><a class="big-post__title-link" href="/post/{{ .PostID }}">{{ .Title }}</a></h3>
         <p class="big-post__text">{{ .Description }}</p>
         <div class="big-post__footer">
