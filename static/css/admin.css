@@ -1,0 +1,34 @@
+.body
+{
+    background-image: url("../image/admin-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.body__frame-logo
+{
+    color: white;
+    width: 380px;
+    height: 87px;
+    margin-top: 333px;
+    margin-left: 230px;
+    margin-bottom: 380px;
+
+}
+
+.frame-logo__logo
+{
+    height: 46px;
+}
+
+.logo__big-text
+{
+    font-size: 45.5px;
+    font-family: 'Lora';
+}   
+
+.logo__small-text
+{
+    font-size: 24.5px;
+    font-family: 'Oxygen';
+}
